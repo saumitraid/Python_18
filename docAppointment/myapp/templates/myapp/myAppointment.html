@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<title>profile</title>
+</head>
+<body>
+  {% include './navbar.html'  %}
+  <div class="jumbotron">
+    <h3 class="text-center">My Appointment</h3>
+  </div>
+  <div class="container">
+    {% if allDoc %}
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name of Doctor</th>
+            <th>Degree</th>
+            <th>Specialist</th>
+            <th>Year of Experience</th>
+            <th>Available Days</th>
+            <th>Timing</th>
+            <th>Appointment Made Date</th>
+            <th>Appointment Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for rec in allDoc %}
+            <tr>
+              <td>{{rec.dname}}</td>
+              <td>{{rec.degree}}</td>
+              <td>{{rec.specialization}}</td>
+              <td>{{rec.yoe}}</td>
+              <td>{{rec.days}}</td>
+              <td>{{rec.time_slot}}</td>
+              <td>{{rec.appmadeon}}</td>
+              <th>{{rec.appdate}}</th>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <h4 class="text-center text-danger">Sorry no appointment found</h4>
+    {% endif %}
+  </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>
